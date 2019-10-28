@@ -12,25 +12,32 @@ console.log ("olar");
 // console.log (body);
 
 const body = document.body;
+const botao = document.getElementById("trocaCor");
 console.log (body);
 
 body.style.backgroundColor = "purple";
+botao.addEventListener("click", function () {
+    
+    const r = geraInteriro();
+    const g = geraInteriro();
+    const b = geraInteriro();
+    console.log (r,g,b);
+    body.style.backgroundColor = "rgb("+ r +", "+ g +","+ b +")";
+});
 // "rgb(,   ,  )";
-const n = Math.random();
-const n2 = n * 255;
-const int = parseInt(n2);
-console.log("numero:", n);
-console.log ("numero", n2);
-console.log("int", int);
+// const n = Math.random();
+// const n2 = n * 255;
+// const int = parseInt(n2);
+// console.log("numero:", n);
+// console.log ("numero", n2);
+// console.log("int", int);
 
 // const r =
 // botao.addEventListener("click", clicouBotao);
 // console.log(intRandom)
 
 
-const botao = document.getElementById("trocaCor");
 // console.log (botao);
-botao.addEventListener("click", clicouBotao);
 
 function geraInteriro() {
    const n = parseInt(Math.random () * 255);
@@ -44,13 +51,8 @@ function clicouBotao() {
     // const b = parseInt(Math.random () * 255);
     // const intRandom = parseInt(Math.random () * 255)
 
-    const r = geraInteriro();
-    const g = geraInteriro();
-    const b = geraInteriro();
-    console.log (r,g,b);
     
     // console.log("entrei na funçao");
-    body.style.backgroundColor = "rgb("+ r +", "+ g +","+ b +")";
     console.log("rgb("+ r +", "+ g +","+ b +")");
 }
     // const h1 = document.body.h1
