@@ -21,7 +21,8 @@ botao.addEventListener('click', () => {
   const r = geraInteiro(255);
   const g = geraInteiro(255);
   const b = geraInteiro(255);
-  body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')'
+  body.style.backgroundColor = "rgb( $(r), $(g), $(b)";
 });
+
 
 geraInteiro = num => parseInt(Math.random() * num);
