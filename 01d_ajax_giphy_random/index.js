@@ -9,10 +9,10 @@
 
 const request = new XMLHttpRequest()
 // const url = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho'
-const url = 'http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=1&offset=0'
+const url = 'http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=4&offset=0'
 request.onreadystatechange = mostraGif;
 request.open('GET', url);
-request.send()
+request.send();
 
 function mostraGif(){
     if (request.readyState === 4 && request.status === 200) {
@@ -24,7 +24,7 @@ function mostraGif(){
 //         let acessar = document.getElementById("imagem");
 //         acessar.setAttribute("src", imagem);
 
-        const imgSrc = json.data[0].images.original.url
+        const imgSrc = json.data[3].images.original.url
         document.querySelector('#imagem').src = imgSrc;
 
     } else {
