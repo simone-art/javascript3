@@ -17,12 +17,32 @@ const body = document.body;
 const botao = document.getElementById('trocaCor');
 
 body.style.backgroundColor = 'purple';
-botao.addEventListener('click', () => {
-  const r = geraInteiro(255);
-  const g = geraInteiro(255);
-  const b = geraInteiro(255);
-  body.style.backgroundColor = "rgb( $(r), $(g), $(b)";
-});
+botao.addEventListener("click", mudaBody)
 
+function mudaBody() {
+body.style.backgroundColor = new MudaCor().geraRGB();
+};
 
-geraInteiro = num => parseInt(Math.random() * num);
+// class MudaCor {
+//   constructor() {
+//   this.r = this.geraInteiro(255);
+//   this.g = this.geraInteiro(255);
+//   this.b = this.geraInteiro(255);
+//   // body.style.backgroundColor = "rgb( $(r), $(g), $(b)";
+//   }
+
+//   geraInteiro(num) {
+//   return parseInt(Math.random() * num);
+//   };
+//   geraRGB() {
+//     return "rgb(${this.r}, ${this.g}, ${this.b})";
+//   } 
+
+// };
+
+// function mudaBody() {
+//   const mudaC = new MudaCor()
+//   const numero = mudaC.r
+//   console.log("mudaC", mudaC);
+
+// };
