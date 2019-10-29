@@ -9,9 +9,15 @@
 
 const request = new XMLHttpRequest()
 // const url = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho'
-const url = 'http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=4&offset=0'
+
+const quero = 'beyonce'
+const urlRequest= `http://api.giphy.com/v1/gifs/search?q=${quero}&api_key=dc6zaTOxFJmzC&limit=4&offset=0`
+
+
+// const url= 'http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=4&offset=0'
+
 request.onreadystatechange = mostraGif;
-request.open('GET', url);
+request.open('GET', urlRequest);
 request.send();
 
 function mostraGif(){
@@ -19,6 +25,7 @@ function mostraGif(){
         const response = request.response;
 //         // console.log(typeof response)
         const json = JSON.parse(response);
+    
         // console.log(json.data.images.original.url);
 //         let imagem = json.data.images.original.url;
 //         let acessar = document.getElementById("imagem");
@@ -30,11 +37,4 @@ function mostraGif(){
     } else {
 
     }
-
 }
-
-
-
-
-
-
