@@ -7,20 +7,33 @@ const div = document.querySelector("#root");
 const img = document.createElement("img");
 const request = new XMLHttpRequest();
 
-request.onreadystatechange = algumaFuncao;
+request.onreadystatechange = getDados;
 
-function algumaFuncao () { 
-    console.log("olar");
-    const response = request.response;
-    const json = JSON.parse(request.response);
-    console.log (json.data[0].imagem);
+function getDados() { 
+    // console.log("olar");
+     if (request.readyState === 4 && request.status === 200) {
+     const response = request.response;
+    // console.log(typeof response);
 
-    img.src = json.data[0].imagem;
+    const json = JSON.parse(response);
+    const data = json.data;
+    const obj = data[0];
+    // console.log(obj)
+    // const imgSrc = obj.imagem;
+
+    // console.log(typeof json)
+    const imgSrc = obj.img;
+    // console.log (json.data[0].imagem);
+
+    img.src = imgSrc;
     div.appenChild(img)
 
     // console.log (json)
+    } else {
+    console.log(request.readyState, request.status);
+    }
 }
 
-const url = "./data/dados.json"
+const url = "./data/dados.json";
 request.open ("GET", url);
-request.send();
+request.send(null);
