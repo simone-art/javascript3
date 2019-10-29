@@ -25,14 +25,19 @@ function mostraGif(){
         const response = request.response;
 //         // console.log(typeof response)
         const json = JSON.parse(response);
-    
+        const body = document.body;
+        body.innerHTML = `
+        <img src = ${json.data[0].images.original.url}>
+        <img src = ${json.data[1].images.original.url}>
+        <img src = ${json.data[2].images.original.url}>
+        `
         // console.log(json.data.images.original.url);
 //         let imagem = json.data.images.original.url;
 //         let acessar = document.getElementById("imagem");
 //         acessar.setAttribute("src", imagem);
 
-        const imgSrc = json.data[3].images.original.url
-        document.querySelector('#imagem').src = imgSrc;
+        // const imgSrc = json.data[3].images.original.url
+        // document.querySelector('#imagem').src = imgSrc;
 
     } else {
 
