@@ -17,42 +17,52 @@ const url = `./data/dados.json`
 
 
 
-request.onreadystatechange = mostrarImagen;
+// request.onreadystatechange = mostrarImagen;
+request.onreadystatechange = criarImagensForEach;
 request.open('GET', url);
 request.send();
 
-function mostrarImagen(){
-    // console.log(request.response)
-    if (request.readyState === 4 && request.status === 200) {
-        const response = request.response;
-        const json = JSON.parse(response);
-        const data = json.data;
-        // console.log(data[0].imagem);
-        const div = document.querySelector('#root');
+// function mostrarImagen(){
+//     // console.log(request.response)
+//     if (request.readyState === 4 && request.status === 200) {
+//         const response = request.response;
+//         const json = JSON.parse(response);
+//         const data = json.data;
+//         // console.log(data[0].imagem);
 
-        // for (let i = 0; i <data.length; i ++) {
-        //     const element = data[i];
-        //     console.log(element)
-        //     const img = `<img src =${element.imagem}>`;
-        //     div.innerHTML += img
-        // }
+        
+//         const div = document.querySelector('#root');
+        
+//         for (let i = 0; i <data.length; i ++) {
+//                 const element = data[i];
+//                 console.log(element)
+//                 const img = `<img src =${element.imagem}>`;
+//                 div.innerHTML += img
+//             }
+            
+            
+//             // const body = document.body;
+//             // console.log(data)
+//             // body.innerHTML +=  `
+//             //     <img src = ${data[0].imagem}>;
+//             //     <img src = ${data[1].imagem}>;
+//             //     <img src = ${data[2].imagem}>;
+//             // `
+            
+            
+//         } else {
+            
+//         }
+//     }
+     
+    function criarImagensForEach(array){
+        array.forEach(element => {
+        console.log(element);
+        const img = `<img src =${element.imagem}>;`
+        div.innerHTML += img;
 
-    
-        const body = document.body;
-        console.log(data)
-        body.innerHTML +=  `
-            <img src = ${data[0].imagem}>;
-            <img src = ${data[1].imagem}>;
-            <img src = ${data[2].imagem}>;
-        `
-
-
-    } else {
-
-    }
-}
-
-
+        });
+    } 
  // contenidoA.nome + ' ' + contenidoB.imagen 
 
         // // <img src = ${./data/dados.json[2]}>
